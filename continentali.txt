@@ -1,0 +1,59 @@
+# Giochi continentali ("New Flag"): risultati delle gare individuali, in ordine di arrivo.
+# Da aggiornare A MANO dopo ogni Giochi (l'agente non li legge da internet).
+#
+# Formato di ogni riga (separatore |):
+#   continente | genere (M o F) | nome dei Giochi | posizione | atleta | NOC | anno di nascita
+# Continenti: Africa, Americhe, Asia, Europa, Oceania.
+# Basta scrivere i primi 20-30 arrivati: il posto va al primo atleta di un NOC
+# che non ha ancora posti in quel genere (ed è tra i primi 160 del World Triathlon Ranking).
+# I Giochi non ancora disputati NON vanno scritti: l'agente mostra il posto "In attesa".
+#
+# Calendario (regolamento, sezione G):
+#   Giochi asiatici Aichi-Nagoya 20-21/9/2026 ........ disputati (righe qui sotto)
+#   Giochi africani 20/1-7/2/2027 ...................... da disputare
+#   Giochi europei giugno 2027 ......................... da disputare
+#   Giochi panamericani 16/7-1/8/2027 .................. da disputare
+#   Giochi del Pacifico 24/7-8/8/2027 .................. da disputare
+
+# ---- Giochi asiatici Aichi-Nagoya 2026, uomini (fonte: triathlon.org, risultati ufficiali)
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 1 | Takumi Hojo | JPN | 1996
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 2 | Xirui Zhang | CHN | 2005
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 3 | Arlan Zhanabay | KAZ | 2005
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 4 | Jérémy Quindos | UZB | 1991
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 5 | Junjie Fan | CHN | 2001
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 6 | Robin Elg | HKG | 2002
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 7 | Oscar Coggins | HKG | 1999
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 8 | Aoba Yasumatsu | JPN | 1997
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 9 | Ayan Beisenbayev | KAZ | 1996
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 10 | Fernando José Casares Tan | PHI | 1996
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 11 | Rashif Amila Yaqin | INA | 2002
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 12 | Sangmin Park | KOR | 2000
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 13 | Yi Jun Tey | SGP | 2002
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 14 | Adoh Doherty | LBN | 1995
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 15 | Taegi Kim | KOR | 2004
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 16 | Muhammad Noval Ashidiq | INA | 2004
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 17 | Li Rong, Luke Chua | SGP | 2001
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 18 | Iñaki Lorbes | PHI | 2001
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 19 | Omar Abdulla Hamza Ali | BRN | 2000
+Asia | M | Giochi asiatici Aichi-Nagoya 2026 | 20 | Aleksandr Kurishov | UZB | 1995
+
+# ---- Giochi asiatici Aichi-Nagoya 2026, donne
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 1 | Xinyu Lin | CHN | 2002
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 2 | Anqi Huang | CHN | 2001
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 3 | Manami Hayashi | JPN | 2004
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 4 | Martina Ayu Pratiwi | INA | 2004
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 5 | Mako Hiraizumi | JPN | 2003
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 6 | Hye Rim Jeong | KOR | 1999
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 7 | Margot Garabedian | CAM | 1996
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 8 | Bailee Brown | HKG | 2000
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 9 | Raven Alcoseba | PHI | 2002
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 10 | Tallulah Wright | HKG | 2003
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 11 | Hye Rang Kim | KOR | 2000
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 12 | Alina Khakimova | UZB | 1997
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 13 | Long Hoi | MAC | 1984
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 14 | Kayla Nadia Shafa | INA | 2008
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 15 | Yen Ling Kathlyn Yeo | SGP | 2000
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 16 | Lydia Musleh | JOR | 1997
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 17 | Diana Yerzhanova | KAZ | 2007
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 18 | Herlene Natasha Yu | SGP | 2002
+Asia | F | Giochi asiatici Aichi-Nagoya 2026 | 19 | Wan U Cheng | MAC | 2002
