@@ -1,0 +1,76 @@
+name: Agente Triathlon LA28
+on:
+  workflow_dispatch:          # lancio a mano da Actions > Run workflow
+    inputs:
+      prova:
+        description: "Solo prova: legge i ranking e simula, ma non scrive su Notion e non aggiorna la pagina web"
+        type: boolean
+        default: true
+      modalita:
+        description: "sostituzione = le righe vecchie in Notion vengono archiviate; archivio = restano tutte"
+        type: choice
+        options: [sostituzione, archivio]
+        default: sostituzione
+      campioni_2027:
+        description: "Mondiale staffetta 2027: vuoto = proiezione; altrimenti NOC in ordine d'arrivo (es. AUS,GBR,FRA)"
+        type: string
+        default: ""
+permissions:
+  contents: read
+jobs:
+  simula:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installa le librerie
+        run: pip install requests
+      - name: Leggi i ranking di World Triathlon, simula e scrivi su Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          DRY_RUN: ${{ inputs.prova }}
+          MODALITA: ${{ inputs.modalita }}
+          CAMPIONI_2027: ${{ inputs.campioni_2027 }}
+        run: python -u scrape_triathlon_la28.py
+      - name: Conserva triathlon.json tra gli allegati dell'esecuzione
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: triathlon-json
+          path: triathlon.json
+          if-no-files-found: ignore
+      - name: Pubblica triathlon.json sulla mappa (map-q-la28)
+        if: ${{ !inputs.prova }}
+        env:
+          MAPPA_TOKEN: ${{ secrets.MAPPA_TOKEN }}
+        run: |
+          if [ -z "$MAPPA_TOKEN" ]; then
+            echo "AVVISO: manca il secret MAPPA_TOKEN, la pagina web non viene aggiornata"
+            exit 0
+          fi
+          git clone --depth 1 "https://x-access-token:${MAPPA_TOKEN}@github.com/vier80/map-q-la28.git" mappa
+          cp triathlon.json mappa/
+          cd mappa
+          git config user.name "agente-triathlon"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add triathlon.json
+          if git diff --cached --quiet; then
+            echo "triathlon.json non è cambiato"
+          else
+            git commit -m "Aggiorna la simulazione dei qualificati di triathlon"
+            git push
+          fi
+          # fa ripartire "Aggiorna mappa LA28", che ripubblica il sito con il file nuovo
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer ${MAPPA_TOKEN}" -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/vier80/map-q-la28/actions/workflows/aggiorna.yml/dispatches \
+            -d '{"ref":"main"}')
+          if [ "$code" = "204" ]; then
+            echo "Ripubblicazione della mappa avviata"
+          else
+            echo "AVVISO: non riesco ad avviare 'Aggiorna mappa LA28' (risposta $code): lancialo a mano da Actions"
+          fi
